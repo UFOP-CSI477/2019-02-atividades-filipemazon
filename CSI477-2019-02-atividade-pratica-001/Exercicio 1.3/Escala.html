@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Escala Richter</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="./calculo.js"></script>
+</head>
+
+
+<body>
+    <br>
+    <center>
+    <br><br>
+    <div class="divForm">
+        <label for="amplitude" class="labelItem"><b>Amplitude:</b></label>
+        <input type="text" name="amplitude" class="form-control" id="Txamplitude">
+        <br>
+
+        <label for="deltaT" class=""><b>DeltaT:</b></label>
+        <input type="text" name="deltaT" class="form-control" id="Txdelta">
+        <br>
+
+        <label for="Magnitude" class=""><b>Magnitude:</b></label>
+        <input type="text" class="form-control" id="Txresultado" disabled>
+        <br><br>
+        </div>
+
+        <section id="efeitoMagnitude">
+        </section>
+        <br><br>
+        <button class="btn btn-criei" onclick="calcular()" style="width: 15%;" type="submit"><b>Calcular</b></button>
+
+    </div>
+
+
+</body>
+
+</html>

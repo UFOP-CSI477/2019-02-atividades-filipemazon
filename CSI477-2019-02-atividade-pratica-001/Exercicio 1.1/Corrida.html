@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="br" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <title>Competição carrinhos de rolimã</title>
+
+
+  </head>
+
+  <body>
+
+    <br><br>
+    <form id ="adiciona" name="adiciona" method="post">
+
+      <center>
+      <label for="largada"><b>Largada</b></label>
+      <input type="text" id="largada" name="largada" class="form-control">
+
+      <br>
+      <label for="competidor"><b>Competidor</b></label>
+      <input type="text" id="competidor" name="competidor" class="form-control">
+      <br>
+      <label for="tempo"><b>Tempo</b></label>
+      <input type="text" id="tempo" name="tempo" class="form-control">
+      <br>
+      <button type="button" id="insere" class="btn btn-primary"><b>Insere</b></button>
+      <button type="reset" id="limpar" class="btn btn-warning"><b>Limpar</b></button>
+
+    </form>
+    <br>
+    <br>
+    <table class="ordena" id="myTable">
+
+      <caption>Competição carrinhos de rolimã</caption>
+      <thead>
+        <tr>
+
+          <th>Largada |</th>
+          <th>Competidor |</th>
+          <th>Tempo(s) </th>
+
+
+      </thead>
+
+      <tbody id = "corpo_tabela" name = "corpo_tabela">
+
+
+      </tbody>
+
+      <tfoot>
+
+      </tfoot>
+
+    </table>
+
+    <br>
+    <br>
+
+    <table class="ordena" id="myTable2">
+
+      <caption><center>Lista de vencedores</center></caption>
+      <thead>
+        <tr>
+          <th>Posição |</th>
+          <th>Largada |</th>
+          <th>Competidor |</th>
+          <th>Tempo(s) |</th>
+          <th>Resultado</th>
+
+      </thead>
+
+      <tbody id = "corpo_tabela2" name = "corpo_tabela2">
+
+
+      </tbody>
+
+      <tfoot>
+
+      </tfoot>
+    </table>
+
+    <button type="button" name="vencedor" class="btn btn-criei"><b>Calcula vencedor</b></button>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="calculo.js"></script>
+
+  </body>
+ </center>
+</html>
