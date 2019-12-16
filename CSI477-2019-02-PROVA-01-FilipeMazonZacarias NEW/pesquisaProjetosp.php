@@ -7,7 +7,7 @@ use Model\Projetos;
 $projetos = new Projetos();
 
 
-include('headerestudante.php');
+include('headerprofessor.php');
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ include('headerestudante.php');
   $strConnection = "mysql:host=$dbhost;dbname=$dbname;charset=utf8";
   $connection = new PDO($strConnection, $dbuser, $dbpassword);
 
-  $projs = $connection->query("SELECT p.Ano as Ano, p.Semestre as Semestre, p.id as idProjeto, x.Nome as Nome, a.Nome as Nomea, p.Titulo as Titulo, x.Area as Area FROM projetos P, professors X, alunos A WHERE P.alunos_id = A.id and P.professors_id = X.id ORDER BY Ano DESC, Semestre DESC, Nomea ASC");
+  $projs = $connection->query("SELECT p.Ano as Ano, p.Semestre as Semestre, p.id as idProjeto, x.Nome as Nome, a.Nome as Nomea, p.Titulo as Titulo, x.Area as Area FROM projetos P, professors X, alunos A WHERE P.aluno_id = A.id and P.professor_id = X.id ORDER BY Ano DESC, Semestre DESC, Nomea ASC");
 
  
 				while($row = $projs->fetch(PDO::FETCH_OBJ)){

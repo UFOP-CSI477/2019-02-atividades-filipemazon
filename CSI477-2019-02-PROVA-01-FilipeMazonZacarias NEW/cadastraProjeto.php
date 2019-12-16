@@ -17,8 +17,8 @@ if (isset($_POST['action'])) {
 		$projeto->setTitulo($_POST['Titulo']);
 		$projeto->setAno($_POST['Ano']);
 		$projeto->setSemestre($_POST['Semestre']);
-		$projeto->setAlunos_id($_POST['Alunos_id']);
-		$projeto->setProfessors_id($_POST['Professors_id']);
+		$projeto->setAluno_id($_POST['Aluno_id']);
+		$projeto->setProfessor_id($_POST['Professor_id']);
 		if($projeto->insert() == 1){
 			$result = "Inserido com sucesso!";
 			
@@ -72,7 +72,7 @@ include('headerprofessor.php');
 
 
 					  <br><label>Aluno:</label>
-                    <select id="selects" class="form-control" name="Alunos_id" action="cadastraProjeto.php"> 
+                    <select id="selects" class="form-control" name="Aluno_id" action="cadastraProjeto.php"> 
                     <option value="select"> Selecione </option>
                         <?php 
                         $stmt = $aluno->index(); 
@@ -86,7 +86,7 @@ include('headerprofessor.php');
                 </select>
 
                     <br><label>Professor:</label>
-                    <select id="selects" class="form-control" name="Professors_id" action="cadastraProjeto.php"> 
+                    <select id="selects" class="form-control" name="Professor_id" action="cadastraProjeto.php"> 
                     <option value="select"> Selecione </option>
                         <?php 
                         $stmt = $professor->index(); 

@@ -11,8 +11,8 @@ class Projetos {
     private $Titulo;
     private $Ano;
     private $Semestre;
-    private $Alunos_id;
-    private $Professors_id;
+    private $Aluno_id;
+    private $Professor_id;
  
 
 
@@ -39,11 +39,11 @@ class Projetos {
         $this->Semestre = $value;
     }
 
-    function setAlunos_id($value) {
-        $this->Alunos_id = $value;
+    function setAluno_id($value) {
+        $this->Aluno_id = $value;
     }
-    function setProfessors_id($value) {
-        $this->Professors_id = $value;
+    function setProfessor_id($value) {
+        $this->Professor_id = $value;
     }
 
 
@@ -52,12 +52,12 @@ class Projetos {
 
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `projetos`(`titulo`,`ano`,`semestre`,`alunos_id`,`professors_id`) VALUES(:Titulo,:Ano,:Semestre,:Alunos_id,:Professors_id)");
+            $stmt = $this->conn->prepare("INSERT INTO `projetos`(`titulo`,`ano`,`semestre`,`aluno_id`,`professor_id`) VALUES(:Titulo,:Ano,:Semestre,:Aluno_id,:Professor_id)");
             $stmt->bindParam(":Titulo", $this->Titulo);
             $stmt->bindParam(":Ano", $this->Ano);
             $stmt->bindParam(":Semestre", $this->Semestre);
-            $stmt->bindParam(":Alunos_id", $this->Alunos_id);
-            $stmt->bindParam(":Professors_id", $this->Professors_id);
+            $stmt->bindParam(":Aluno_id", $this->Aluno_id);
+            $stmt->bindParam(":Professor_id", $this->Professor_id);
 
             $stmt->execute();
             return 1;
