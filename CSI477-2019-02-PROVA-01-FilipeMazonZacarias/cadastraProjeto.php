@@ -3,11 +3,11 @@
 require'autoloader.php';
 
 use Model\Alunos;
-use Model\Professores;
+use Model\Professors;
 use Model\Projetos;
 
 $aluno = new Alunos();
-$professor = new Professores();
+$professor = new Professors();
 $projeto = new Projetos();
 
 
@@ -17,8 +17,8 @@ if (isset($_POST['action'])) {
 		$projeto->setTitulo($_POST['Titulo']);
 		$projeto->setAno($_POST['Ano']);
 		$projeto->setSemestre($_POST['Semestre']);
-		$projeto->setAlunos_idAluno($_POST['Alunos_idAluno']);
-		$projeto->setProfessores_idProfessor($_POST['Professores_idProfessor']);
+		$projeto->setAlunos_id($_POST['Alunos_id']);
+		$projeto->setProfessors_id($_POST['Professors_id']);
 		if($projeto->insert() == 1){
 			$result = "Inserido com sucesso!";
 			
@@ -71,28 +71,28 @@ include('headerprofessor.php');
 					<input type="text" class="form-control" name="Semestre" id="Semestre" placeholder="Semestre" required>
 
 
-					 <br><label>Aluno:</label>
-                    <select id="select" class="form-control" name="Alunos_idAluno" action="cadastraProjeto.php"> 
+					  <br><label>Aluno:</label>
+                    <select id="selects" class="form-control" name="alunos_id" action="cadastraProjeto.php"> 
                     <option value="select"> Selecione </option>
                         <?php 
                         $stmt = $aluno->index(); 
                         while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                         ?>
-                        <option id= "<?php echo $row->idAluno; ?>" value="<?php echo $row->idAluno; ?>"> <?php echo $row->Nome; ?>   
+                        <option id= "<?php echo $row->id; ?>" value="<?php echo $row->id; ?>"> <?php echo $row->nome; ?>
                          </option> 
                     <?php
                     }
-                    ?>  
+                    ?> 
                 </select>
 
                     <br><label>Professor:</label>
-                    <select id="selects" class="form-control" name="Professores_idProfessor" action="cadastraProjeto.php"> 
+                    <select id="selects" class="form-control" name="Professors_id" action="cadastraProjeto.php"> 
                     <option value="select"> Selecione </option>
                         <?php 
                         $stmt = $professor->index(); 
                         while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                         ?>
-                        <option id= "<?php echo $row->idProfessor; ?>" value="<?php echo $row->idProfessor; ?>"> <?php echo $row->Nome; ?>
+                        <option id= "<?php echo $row->id; ?>" value="<?php echo $row->id; ?>"> <?php echo $row->nome; ?>
                          </option> 
                     <?php
                     }

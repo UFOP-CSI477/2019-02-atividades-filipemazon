@@ -6,9 +6,9 @@ use \PDO;
 use \PDOException;
 use Model\Database;
 
-class Professores {
+class Professors {
     
-    private $idProfessor;
+    private $id;
     private $Nome;
     private $Area;
  
@@ -21,8 +21,8 @@ class Professores {
     }
     
     
-    function setidProfessor($value) {
-        $this->idProfessor = $value;
+    function setid($value) {
+        $this->id = $value;
     }
 
     function setNome($value) {
@@ -39,7 +39,7 @@ class Professores {
 
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `Professores`(`nome`,`area`) VALUES(:nome,:area)");
+            $stmt = $this->conn->prepare("INSERT INTO `professors`(`nome`,`area`) VALUES(:nome,:area)");
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":area", $this->area);
 
@@ -53,8 +53,8 @@ class Professores {
     
     public function edit(){
         try{
-            $stmt = $this->conn->prepare("UPDATE `Professores` SET `nome` = :nome, `area` = :area");
-            $stmt->bindParam(":idProfessor", $this->idProfessor);
+            $stmt = $this->conn->prepare("UPDATE `professors` SET `nome` = :nome, `area` = :area");
+            $stmt->bindParam(":id", $this->id);
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":area", $this->area);
 
@@ -70,15 +70,15 @@ class Professores {
 
 
     public function view(){
-        $stmt = $this->conn->prepare("SELECT * FROM `Professores` WHERE `idProfessor` = :idProfessor");
-        $stmt->bindParam(":idProfessor", $this->idProfessor);
+        $stmt = $this->conn->prepare("SELECT * FROM `professors` WHERE `id` = :id");
+        $stmt->bindParam(":id", $this->id);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_OBJ);
         return $row;
     }
     
     public function index(){
-        $stmt = $this->conn->prepare("SELECT * FROM `Professores` WHERE 1");
+        $stmt = $this->conn->prepare("SELECT * FROM `professors` WHERE 1");
         $stmt->execute();
         return $stmt;
     }

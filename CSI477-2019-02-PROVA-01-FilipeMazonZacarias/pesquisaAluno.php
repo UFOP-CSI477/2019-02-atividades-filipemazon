@@ -49,9 +49,9 @@ include('headerprofessor.php');
 					<tbody>
 						<tr>
 							<form method="post" action="exibeAluno.php">
-								<td><?php echo $row->idAluno ;?></td>
-								<td><?php echo $row->Nome ;?></td>
-								<td><?php echo $row->Curso ;?></td>
+								<td><?php echo $row->id ;?></td>
+								<td><?php echo $row->nome ;?></td>
+								<td><?php echo $row->curso ;?></td>
 
 
 							</form>

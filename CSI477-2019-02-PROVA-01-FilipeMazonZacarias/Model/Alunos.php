@@ -8,7 +8,7 @@ use Model\Database;
 
 class Alunos {
     
-    private $idAluno;
+    private $id;
     private $Nome;
     private $Curso;
  
@@ -21,8 +21,8 @@ class Alunos {
     }
     
     
-    function setidAluno($value) {
-        $this->idAluno = $value;
+    function setid($value) {
+        $this->id = $value;
     }
 
     function setNome($value) {
@@ -39,7 +39,7 @@ class Alunos {
 
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `Alunos`(`nome`,`curso`) VALUES(:nome,:curso)");
+            $stmt = $this->conn->prepare("INSERT INTO `alunos`(`nome`,`curso`) VALUES(:nome,:curso)");
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":curso", $this->curso);
 
@@ -54,7 +54,7 @@ class Alunos {
     public function edit(){
         try{
             $stmt = $this->conn->prepare("UPDATE `Alunos` SET `nome` = :nome, `curso` = :curso");
-            $stmt->bindParam(":idAluno", $this->idAluno);
+            $stmt->bindParam(":id", $this->id);
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":curso", $this->curso);
 
@@ -70,15 +70,15 @@ class Alunos {
 
 
     public function view(){
-        $stmt = $this->conn->prepare("SELECT * FROM `Alunos` WHERE `idAluno` = :idAluno");
-        $stmt->bindParam(":idAluno", $this->idAluno);
+        $stmt = $this->conn->prepare("SELECT * FROM `alunos` WHERE `id` = :id");
+        $stmt->bindParam(":id", $this->id);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_OBJ);
         return $row;
     }
     
     public function index(){
-        $stmt = $this->conn->prepare("SELECT * FROM `Alunos` WHERE 1");
+        $stmt = $this->conn->prepare("SELECT * FROM `alunos` WHERE 1");
         $stmt->execute();
         return $stmt;
     }

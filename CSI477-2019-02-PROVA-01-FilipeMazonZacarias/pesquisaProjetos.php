@@ -44,7 +44,7 @@ include('headerestudante.php');
   $strConnection = "mysql:host=$dbhost;dbname=$dbname;charset=utf8";
   $connection = new PDO($strConnection, $dbuser, $dbpassword);
 
-  $projs = $connection->query("SELECT p.Ano as Ano, p.Semestre as Semestre, p.idProjeto as idProjeto, x.Nome as Nome, a.Nome as Nomea, p.Titulo as Titulo, x.Area as Area FROM projetos P, professores X, alunos A WHERE P.alunos_idAluno = A.idAluno and P.professores_idProfessor = X.idProfessor ORDER BY Ano DESC, Semestre DESC, Nomea ASC");
+  $projs = $connection->query("SELECT p.Ano as Ano, p.Semestre as Semestre, p.id as idProjeto, x.Nome as Nome, a.Nome as Nomea, p.Titulo as Titulo, x.Area as Area FROM projetos P, professors X, alunos A WHERE P.alunos_id = A.id and P.professors_id = X.id ORDER BY Ano DESC, Semestre DESC, Nomea ASC");
 
  
 				while($row = $projs->fetch(PDO::FETCH_OBJ)){

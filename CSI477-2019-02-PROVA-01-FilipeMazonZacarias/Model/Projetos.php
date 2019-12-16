@@ -7,12 +7,12 @@ use \PDOException;
 
 class Projetos {
     
-    private $idProjeto;
+    private $id;
     private $Titulo;
     private $Ano;
     private $Semestre;
-    private $Alunos_idAluno;
-    private $Professores_idProfessor;
+    private $Alunos_id;
+    private $Professors_id;
  
 
 
@@ -23,8 +23,8 @@ class Projetos {
     }
     
     
-    function setidProjeto($value) {
-        $this->idProjeto = $value;
+    function setid($value) {
+        $this->id = $value;
     }
 
     function setTitulo($value) {
@@ -39,11 +39,11 @@ class Projetos {
         $this->Semestre = $value;
     }
 
-    function setAlunos_idAluno($value) {
-        $this->Alunos_idAluno = $value;
+    function setAlunos_id($value) {
+        $this->Alunos_id = $value;
     }
-    function setProfessores_idProfessor($value) {
-        $this->Professores_idProfessor = $value;
+    function setProfessors_id($value) {
+        $this->Professors_id = $value;
     }
 
 
@@ -52,12 +52,12 @@ class Projetos {
 
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `Projetos`(`Titulo`,`Ano`,`Semestre`,`Alunos_idAluno`,`Professores_idProfessor`) VALUES(:Titulo,:Ano,:Semestre,:Alunos_idAluno,:Professores_idProfessor)");
+            $stmt = $this->conn->prepare("INSERT INTO `projetos`(`titulo`,`ano`,`semestre`,`alunos_id`,`professores_id`) VALUES(:Titulo,:Ano,:Semestre,:Alunos_id,:Professors_id)");
             $stmt->bindParam(":Titulo", $this->Titulo);
             $stmt->bindParam(":Ano", $this->Ano);
             $stmt->bindParam(":Semestre", $this->Semestre);
-            $stmt->bindParam(":Alunos_idAluno", $this->Alunos_idAluno);
-            $stmt->bindParam(":Professores_idProfessor", $this->Professores_idProfessor);
+            $stmt->bindParam(":Alunos_id", $this->Alunos_id);
+            $stmt->bindParam(":Professors_id", $this->Professors_id);
 
             $stmt->execute();
             return 1;
