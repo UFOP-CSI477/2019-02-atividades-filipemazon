@@ -72,7 +72,7 @@ include('headerprofessor.php');
 
 
 					  <br><label>Aluno:</label>
-                    <select id="selects" class="form-control" name="alunos_id" action="cadastraProjeto.php"> 
+                    <select id="selects" class="form-control" name="Alunos_id" action="cadastraProjeto.php"> 
                     <option value="select"> Selecione </option>
                         <?php 
                         $stmt = $aluno->index(); 

@@ -52,7 +52,7 @@ class Projetos {
 
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `projetos`(`titulo`,`ano`,`semestre`,`alunos_id`,`professores_id`) VALUES(:Titulo,:Ano,:Semestre,:Alunos_id,:Professors_id)");
+            $stmt = $this->conn->prepare("INSERT INTO `projetos`(`titulo`,`ano`,`semestre`,`alunos_id`,`professors_id`) VALUES(:Titulo,:Ano,:Semestre,:Alunos_id,:Professors_id)");
             $stmt->bindParam(":Titulo", $this->Titulo);
             $stmt->bindParam(":Ano", $this->Ano);
             $stmt->bindParam(":Semestre", $this->Semestre);
